@@ -127,6 +127,9 @@ Costs
 ![](https://github.com/mykol-com/msposapp/blob/master/pics/ss1.png)
 
 
+![](https://github.com/mykol-com/msposapp/blob/master/pics/ss2.png)
+
+
 
 PCI/Security References
 ------------------------
@@ -175,6 +178,8 @@ Other References
 	https://aws.amazon.com/
 	
 	https://aws.amazon.com/cli/
+
+	https://calculator.s3.amazonaws.com/
 
 - Redhat Containers:
 
