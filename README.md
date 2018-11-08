@@ -10,9 +10,6 @@ Overview
 
 This solution provides for the Teleflora Managed Services Linux point of sale applications to run in the cloud on a single-host Docker environment with a 1:1 contanier to host ratio, in a private cloud network accessible by all branch locations of the florist. It will utilize as many of the existing, proven compliant, internal processes for delivering a point of sale system to the florist as possible. This application serves to manage those processes as well as the a few additional ones for inserting the container layer. The end result will be a simple set of instructions to build, stage, and deploy a customer's point of sale application into the cloud in a small amount of time, with no loss of data.
 
-Example pic here
-![](https://github.com/mykol-com/MSCloudServer/blob/master/msposapp/pics/docker_single_host.png)
-
 
 
 Requirements
@@ -65,14 +62,11 @@ The solution can be considered in 4 peices (Each having different compliance imp
 
 The resulting EC2 instance will be hardened with existing processes, as well as address the gaps covered by the PCI references below. It will run the linux POS application in a container that is built with the same processes as the physical servers sold to the florists now. There will be a 1-to-1 container to host ratio to allow all host resources to be used by the point of sale application, as well as simplify the segregation of customer data per PA-DSS requirements. The point of sale instance will intiate a VPN connection to the florist's network(s), and route all traffic through the florist via the VPN tunnel. This allows us to block all ports inbound to the container because we are using the POS application server as the VPN client.
 
-
-
-Example1 pic here
 ![](https://github.com/mykol-com/MSCloudServer/blob/master/msposapp/pics/docker_single_host.png)
 
-Example2 pic here
 ![](https://github.com/mykol-com/MSCloudServer/blob/master/msposapp/pics/docker_single_host.png)
 
+![](https://github.com/mykol-com/MSCloudServer/blob/master/msposapp/pics/docker_single_host.png)
 
 
 Installation
@@ -130,7 +124,7 @@ Installation
 Costs
 ------------------------
 
-		Pricing info here.
+![](https://github.com/mykol-com/msposapp/blob/master/pics/ss1.png)
 
 
 
