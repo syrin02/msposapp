@@ -8,7 +8,7 @@ Teleflora Managed Services Linux Point of Sale Applications deployed in Amazon A
 Overview
 ------------------------
 
-This solution provides for the Teleflora Managed Services Linux point of sale applications to run in the cloud on a single-host Docker environment with a 1:1 contanier to host ratio, in a private cloud network accessible by all branch locations of the florist. It will utilize as many of the existing, proven compliant, internal processes for delivering a point of sale system to the florist as possible. This application serves to manage those processes as well as the a few additional ones for inserting the container layer. The end result will be a simple set of instructions to build, stage, and deploy a customer's point of sale application into the cloud in a small amount of time, with no loss of data.
+This solution provides for the Teleflora Managed Services Linux point of sale applications to run in the cloud on a single-host Docker environment with a 1:1 contanier to host ratio, in a private cloud network accessible by all branch locations of the florist. It will utilize as many of the existing, proven compliant, internal processes for delivering a point of sale system to the florist as possible. This application serves to manage those processes as well as the a few additional ones for inserting the container layer. The end result will be a simple set of instructions to build, stage, and deploy a customer's point of sale server into the cloud in a small amount of time, with no loss of data.
 
 
 
@@ -44,29 +44,32 @@ Design
 
 The solution can be considered in 4 peices (Each having different compliance implications):
 
-1. Build (media creation)
+1. Build (media creation):
 
-	An automated build process, using containers, to quickly produce OS media prepared with all the required components needed by the application installation. Technically, the use of prepared media from a marketplace or other solution, isn't suggested for PCI compliance. Additionally, in a catastrophic situation, quickling matching patch levels from a customer's physical server might be needed.
+	An automated build process, using containers, to quickly produce OS media prepared with all the required components needed by the application installation. Technically, the use of prepared media from a marketplace or other solution, isn't suggested for PCI compliance. Additionally, in a catastrophic situation, quickly matching patch levels from a customer's physical server becomes a requirement.
 
-2. Staging (creation of a running, generic, instance from media)
+		- Menu item 11.
+
+2. Staging (creation of a running, generic, instance from media):
 
 	Prepare the linux boot volume, combine with added required pieces needed for deployment from managed services for the application installation, run through the build process, then commit to the resulting container.
 
-3. Deployment (with data)
+		- Menu item 12.
+
+3. Deployment (with data):
 
 	Assign to a customer, create VPN connection, mount persisted data, and start application instance.
 
-4. Reporting 
+		- Menu item 112 and 12.
+
+4. Reporting: 
 
 	Creation of reporting sufficient enough to produce historical info for billing, performance, and compliance purposes.
 
-The resulting EC2 instance will be hardened with existing processes, as well as address the gaps covered by the PCI references below. It will run the linux POS application in a container that is built with the same processes as the physical servers sold to the florists now. There will be a 1-to-1 container to host ratio to allow all host resources to be used by the point of sale application, as well as simplify the segregation of customer data per PA-DSS requirements. The point of sale instance will intiate a VPN connection to the florist's network(s), and route all traffic through the florist via the VPN tunnel. This allows us to block all ports inbound to the container because we are using the POS application server as the VPN client.
+The resulting EC2 instance will be hardened, as well as address the gaps covered by the PCI references below. It will run the linux POS application in a container that is built with the same processes as the physical servers sold to the florists now. There will be a 1-to-1 container to host ratio to allow all host resources to be used by the point of sale application, as well as simplify the segregation of customer data per PA-DSS requirements. The point of sale instance will intiate a VPN connection to the florist's network(s), and route all traffic through the florist via the VPN tunnel. This allows us to block all ports inbound to the container because we are using the POS application server as the VPN client.
 
 ![](https://github.com/mykol-com/MSCloudServer/blob/master/msposapp/pics/docker_single_host.png)
 
-![](https://github.com/mykol-com/MSCloudServer/blob/master/msposapp/pics/docker_single_host.png)
-
-![](https://github.com/mykol-com/MSCloudServer/blob/master/msposapp/pics/docker_single_host.png)
 
 
 Installation
@@ -77,8 +80,9 @@ Installation
 	- A second network interface (eth1) assigned to the VM.
 	- 100GB of disk space.
 	- 2 Elastic IPs. Each assigned to each NIC. (One for the Docker host, one for the container.)
+		- Assign the 2nd NIC (eth1) an IP in the customers physical network. (eg. 192.168.1.221/24)
 	- Ports to be opened inbound to host (eth0): ssh (22).
-	- Ports to be opened inbound to container (eth1): None (Block all inbound initiated connections).
+	- Ports to be opened inbound to container (eth1): None (Block all _inbound_ initiated connections).
 
 2. Download and install cloud admin menus:
 
@@ -115,9 +119,9 @@ Installation
 		Enter selection: 
 		
 		Select "d" to Install/Configure/Upgrade Dependant packages; 1st time need Redhat support login.
-		Select "a" to I/C/U AWS - Need AWS Account Keys, region, and enter "text" for output.
+		Select "a" to I/C/U AWSCLI - Need AWS Key and secret key, desired region, and enter "text" for output.
 
-- Next, build the OS media, stage an instance, create a VPN connection, mount persisted data, then start the point of sale appliation.
+- Next, build the OS media (11), stage an instance (12), create a VPN connection (113), mount persisted data (auto), then start the point of sale server (2).
 
 
 
@@ -142,7 +146,7 @@ In my opinion, the most important quote from any of these articles:
 
 	https://thenewstack.io/containers-pose-different-operational-security-challenges-pci-compliance/
 
-- Another, with downloadable container specific, PA-DSS guide:
+- Another, with downloadable container specific PA-DSS guide:
 
 	https://blog.aquasec.com/why-container-security-matters-for-pci-compliant-organizations
 
@@ -225,4 +229,5 @@ Other References
 
 
 ------------------------
-Mike Green - mgreen@teleflora.com
+Mike Green
+mgreen@teleflora.com
