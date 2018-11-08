@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#---------
+#setup_aws
+#---------
+#+MAIN
+#-Install AWSCLI.
+pip install awscli
+
+# sync date/time otherwise AWS auth will fail
+ntpdate pool.ntp.org
+
+#-Configure AWS for your account.
+aws configure

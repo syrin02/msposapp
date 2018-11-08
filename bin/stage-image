@@ -1,0 +1,49 @@
+#!/bin/bash
+
+OS=rhel
+echo -n "SHOPCODE: "
+read SHOPCODE
+
+#start container
+CONTAINER=`docker run -d -it --name=$SHOPCODE.teleflora.com --rm --privileged -v usr2:/usr2  -w="/usr/local/bin" -i ${OS}7-rti-16.1.3 /usr/sbin/init`
+./pipework --direct-phys eth1 $CONTAINER 192.168.222.22/24@192.168.222.1
+
+#RHEL changed from /bin to /usr/bin at some point. Created link to avoid changing scripts.
+docker exec $CONTAINER ln -s /usr/bin /bin
+
+#Make loop back device in container
+docker exec $CONTAINER mknod /dev/loop0 b 7 0
+
+#install ostools
+docker exec $CONTAINER wget http://rtihardware.homelinux.com/ostools/ostools-1.15-latest.tar.gz
+docker exec $CONTAINER tar xvfz ostools-1.15-latest.tar.gz
+docker exec $CONTAINER ./bin/install-ostools.pl --noharden-linux ./ostools-1.15-latest.tar.gz
+
+#configure system with ostools
+docker exec $CONTAINER ./bin/updateos.pl --hostname=$SHOPCODE.teleflora.com >/dev/null 2>&1
+
+#Run RTI staging script.
+docker exec $CONTAINER chmod +x ./ksrti.sh
+docker exec $CONTAINER chmod +x ./ksrti_install.sh
+
+#ISSUE TO FIGURE OUT: No terminal input passed to this script for password entry etc.
+#ALSO: Look again for a completely silent install for bbj?
+#docker exec $CONTAINER ./ksrti.sh
+
+#update OS
+docker exec $CONTAINER yum -y update
+
+#save/export container
+docker commit $CONTAINER $SHOPCODE.teleflora.com
+
+#Done
+echo "${OS}7-rti-$SHOPCODE instance is ready!"
+echo "---"
+docker exec $CONTAINER /usr/local/bin/bin/updateos.pl --version
+docker exec $CONTAINER cat /etc/redhat-release
+rm -f ~/.ssh/known_hosts
+echo "---"
+echo -n "Next: Add Customer Data?(y/n): "
+read DATA
+[ "$DATA" == "y" ] && echo Restore Data Here
+exit 0
