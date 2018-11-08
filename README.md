@@ -15,7 +15,7 @@ This solution provides for the Teleflora Managed Services Linux point of sale ap
 Requirements
 ------------------------
 
-- Low cost.
+- Very low cost.
 
 - Minimal use of support time or resources.
 
@@ -82,7 +82,7 @@ Installation
 	- 2 Elastic IPs. Each assigned to each NIC. (One for the Docker host, one for the container.)
 		- Assign the 2nd NIC (eth1) an IP in the customers physical network. (eg. 192.168.1.221/24)
 	- Ports to be opened inbound to host (eth0): ssh (22).
-	- Ports to be opened inbound to container (eth1): None (Block all _inbound_ initiated connections).
+	- Ports to be opened inbound to container (eth1): None (Block all inbound _initiated_ connections).
 
 2. Download and install cloud admin menus:
 
@@ -221,13 +221,11 @@ Other References
 
 	https://www.open-scap.org/
 
-- OpenVPN:
+- vpnc for RHEL7:
 
-	https://openvpn.net/
-
+	https://linuxconfig.org/establishing-cisco-vpn-client-connection-on-rhel-7-using-vpnc
 
 
 
 ------------------------
-Mike Green
-mgreen@teleflora.com
+Mike Green -- mgreen@teleflora.com
