@@ -89,8 +89,8 @@ Installation
 2. Download and install cloud admin menus:
 
 		sudo yum install git
-		git clone https://github.com/mykol-com/MSCloudServer.git
-		cd ./MSCloudServer/msposapp
+		git clone https://github.com/mykol-com/msposapp.git
+		cd ./msposapp
 		sudo ./MENU
 		
 		10:18:27 - Not Installed
