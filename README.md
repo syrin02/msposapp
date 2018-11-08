@@ -217,9 +217,10 @@ Other References
 
 	https://www.open-scap.org/
 
-- SSL VPN Client Creation from linux command line:
+- OpenVPN:
 
-	http://www.tldp.org/HOWTO/VPN-HOWTO/x346.html
+	https://openvpn.net/
+
 
 
 
