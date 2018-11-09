@@ -80,7 +80,7 @@ Installation
 	- A second network interface (eth1) assigned to the VM.
 	- 100GB of disk space.
 	- 2 Elastic IPs. Each assigned to each NIC. (One for the Docker host, one for the container.)
-		- Assign the 2nd NIC (eth1) an IP in the customers physical network. (eg. 192.168.1.221/24)
+		- Assign the 2nd NIC (eth1) an IP of 192.168.222.22/24.
 	- Ports to be opened inbound to host (eth0): ssh (22).
 	- Ports to be opened inbound to container (eth1): None (Block all inbound _initiated_ connections).
 
