@@ -37,6 +37,8 @@ Requirements
 
 - Reporting; track use for billing, performance, and compliance purposes.
 
+- Self-contained: The intention is to promote the conversion of physical point of sale machines to virtual. The POS servers need to be independant of each other. (If one is affected by an outage or other, no one else is effected.) Normally, it is the intention to move toward a distributed environment when moving toward cloud-hosted environments.
+
 
 
 Design
@@ -46,7 +48,7 @@ The solution can be considered in 4 peices (Each having different compliance imp
 
 1. Build (media creation):
 
-	An automated build process, using containers, to quickly produce OS media prepared with all the required components needed by the application installation. Technically, the use of prepared media from a marketplace or other solution, isn't recommended for PCI compliance. Additionally, in a catastrophic situation, quickly matching patch levels from a customer's physical server becomes a requirement.
+	An automated build process, using containers, to quickly produce OS media prepared with all the required components needed by the OS and application installation. Technically, the use of pre-prepared media from a marketplace or other 3rd party, isn't recommended for PCI compliance. Additionally, in a catastrophic situation, quickly matching patch levels from a customer's physical server becomes a requirement.
 
 		- Menu item 11 to build OS media image.
 
@@ -109,9 +111,9 @@ The solution can be considered in 4 peices (Each having different compliance imp
 
 	Creation of reporting sufficient enough to produce historical info for billing, performance, and compliance purposes.
 
-	Examples: yearly key rotations, periodic patch updates, or running time for a time-slice billing option.
+	Examples: yearly key rotations, periodic patch updates, instance inventory/subscriber list, or perhaps running time for a time-slice billing option.
 
-The resulting EC2 instance will be hardened, as well as address the gaps covered by the PCI references below. It will run the linux POS application in a container that is built with the same processes as the physical servers sold to the florists now. There will be a 1-to-1 container to host ratio to allow all host resources to be used by the point of sale application, as well as simplify the segregation of customer data per PA-DSS requirements. The point of sale instance will intiate a VPN connection to the florist's network(s), and route all traffic through the florist via the VPN tunnel. This allows us to block all ports inbound to the container because we are using the POS application server as the VPN client, who _initiates_ the connection.
+The resulting EC2 instance will be hardened, as well as address the gaps covered by the PCI references below. It will run the linux POS application in a container that is built with the same processes as the physical servers sold to the florists now. There will be a 1-to-1 container to host ratio to allow all host resources to be used by the point of sale application, as well as simplify the segregation of customer data per PA-DSS requirements. The point of sale instance will be connected by VPN connection to the florist's network(s), and route all traffic through the florist via that VPN tunnel. This allows us to block all ports inbound to the container itself because we are using the POS application server as the VPN client, who _initiates_ the connection.
 
 need real image here
 
@@ -179,6 +181,9 @@ Costs
 
 
 ![](https://github.com/mykol-com/msposapp/blob/master/pics/ss2.png)
+
+
+Add larger server option
 
 
 
