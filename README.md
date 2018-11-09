@@ -8,7 +8,7 @@ Teleflora Managed Services Linux Point of Sale Applications deployed in Amazon A
 Overview
 ------------------------
 
-This solution provides for the Teleflora Managed Services Linux point of sale applications to run in the cloud on a single-host Docker environment with a 1:1 contanier to host ratio, in a private cloud network accessible by all branch locations of the florist. It will utilize as many of the existing, proven compliant, internal processes for delivering a point of sale system to the florist as possible. This application serves to manage those processes as well as the a few additional ones for inserting the container layer. The end result will be a simple set of instructions to build, stage, and deploy a customer's point of sale server into the cloud in a small amount of time, with no loss of data.
+This solution provides for the Teleflora Managed Services Linux point of sale applications to run in the cloud on a single-host Docker environment with a 1:1 contanier to host ratio, in a private cloud network accessible by all branch locations of the florist. It will utilize as many of the existing, proven compliant, internal processes for delivering a point of sale system to the florist as possible. This application serves to manage those processes as well as the a few additional ones for inserting the container layer. The end result will be a simple set of instructions to build, stage, and deploy a customer's point of sale server into the cloud in a small amount of time, with no loss of data and minimal downtime.
 
 
 
@@ -64,7 +64,7 @@ The solution can be considered in 4 peices (Each having different compliance imp
 
 2. Staging (creation of a running, generic, instance from media):
 
-	Prepare the linux boot volume, combine with added required pieces needed for deployment from managed services for the application installation, run through the build process, then commit to the resulting container.
+	Prepare the linux boot volume, combine with added required pieces needed for deployment from managed services for the application installation, run through the installation process, then commit to the resulting container.
 
 
 
@@ -103,7 +103,7 @@ The solution can be considered in 4 peices (Each having different compliance imp
 
 3. Deployment (with data):
 
-	Assign to a customer, create VPN connection, mount persisted data, and start application instance.
+	Assign to a customer, create VPN connection, mount persisted data, and start the application instance.
 
 		- Menu item 112 and 12.
 
