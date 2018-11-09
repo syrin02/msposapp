@@ -11,6 +11,8 @@ Overview
 This solution provides for the Teleflora Managed Services Linux point of sale applications to run in the cloud on a single-host Docker environment with a 1:1 contanier too host ratio, in a private cloud network accessible by all branch locations of the customer. It will utilize as many of the existing, proven compliant, internal processes for delivering a point of sale system as possible. This application serves to manage those processes as well as the a few additional ones for inserting the container layer. The end result will be a simple set of instructions (menu driven) to: Build, stage, and deploy a customer's point of sale server into the cloud, quickly, with no loss of data and minimal downtime.
 
 
+DIAGRAM NEEDED HERE
+
 
 Requirements
 ------------------------
@@ -138,7 +140,7 @@ The solution can be considered in 4 peices (Each having different compliance imp
 
 
 
-The resulting EC2 instance will be hardened, as well as address the gaps covered by the PCI references below. It will run the linux POS application in a container that is built with the same processes as the physical servers sold to the florists now. There will be a 1-to-1 container to host ratio to allow all host resources to be used by the point of sale application, as well as simplify the segregation of customer data per PA-DSS requirements. The point of sale instance will be connected by VPN connection to the florist's network(s), and route all traffic through the florist via that VPN tunnel (one VPN tunnel per remote location). Or "spoke and wheel" VPN configuration. This allows us to block all ports inbound to the container itself because we are using the POS application server as the VPN client, who _initiates_ the connection.
+The resulting EC2 instance will be hardened, as well as address the gaps covered by the PCI references below. It will run the linux POS application in a container that is built with the same processes as the physical servers sold to the florists now. There will be a 1-to-1 container to host ratio to allow all host resources to be used by the point of sale application, as well as simplify the segregation of customer data per PA-DSS requirements. The point of sale instance will be connected by VPN connection to the florist's network(s), and route all traffic through the florist via that VPN tunnel (one VPN tunnel per remote location). Or "spoke and wheel" VPN configuration. This allows us to block all ports inbound to the container itself because we are using the POS application server as the VPN client, who ___initiates___ the connection.
 
 NEED REAL IMAGE
 
@@ -204,7 +206,7 @@ Installation
 Costs
 ------------------------
 
-Small Server Option:
+__Small Server Option:__
 
 ![](https://github.com/mykol-com/msposapp/blob/master/pics/ss1.png)
 
@@ -212,7 +214,7 @@ Small Server Option:
 ![](https://github.com/mykol-com/msposapp/blob/master/pics/ss2.png)
 
 
-Large Server Option:
+__Large Server Option:__
 
 ADD LARGE SERVER OPTION
 
