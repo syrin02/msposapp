@@ -8,7 +8,7 @@ Teleflora Managed Services Linux Point of Sale Applications deployed in Amazon A
 Overview
 ------------------------
 
-This solution provides for the Teleflora Managed Services Linux point of sale applications to run in the cloud on a single-host Docker environment with a 1:1 contanier to host ratio, in a private cloud network accessible by all branch locations of the florist. It will utilize as many of the existing, proven compliant, internal processes for delivering a point of sale system to the florist as possible. This application serves to manage those processes as well as the a few additional ones for inserting the container layer. The end result will be a simple set of instructions to build, stage, and deploy a customer's point of sale server into the cloud in a small amount of time, with no loss of data and minimal downtime.
+This solution provides for the Teleflora Managed Services Linux point of sale applications to run in the cloud on a single-host Docker environment with a 1:1 contanier to host ratio, in a private cloud network accessible by all branch locations of the customer. It will utilize as many of the existing, proven compliant, internal processes for delivering a point of sale system as possible. This application serves to manage those processes as well as the a few additional ones for inserting the container layer. The end result will be a simple set of instructions (menu driven) to: Build, stage, and deploy a customer's point of sale server into the cloud, quickly, with no loss of data and minimal downtime.
 
 
 
@@ -106,6 +106,8 @@ The solution can be considered in 4 peices (Each having different compliance imp
 	Assign to a customer, create VPN connection, mount persisted data, and start the application instance.
 
 		- Menu item 112 and 12.
+
+
 
 4. Reporting: 
 
