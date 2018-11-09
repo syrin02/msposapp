@@ -55,7 +55,7 @@ The solution can be considered in 4 peices (Each having different compliance imp
 	An automated build process, using containers, to quickly produce OS media prepared with all the required components needed by the OS and application installation. Technically, the use of pre-prepared media from a marketplace or other 3rd party, isn't recommended for PCI compliance. Additionally, in a catastrophic situation, quickly matching patch levels from a customer's physical server becomes a requirement.
 
 
-   ```
+  ```
 		Enter selection: 11
 		...
 		...
@@ -72,15 +72,15 @@ The solution can be considered in 4 peices (Each having different compliance imp
 		user    12m9.770s
 		sys     0m44.830s
 		Press enter to continue..
-   ```
+  ```
 
-   ```
+  ```
 		Enter selection: 13
 		REPOSITORY                         TAG                 IMAGE ID            CREATED             SIZE
 		rhel7-rti-16.1.3                   latest              05b1c483ffcf        19 seconds ago      1.38 GB
 		registry.access.redhat.com/rhel7   latest              eb205f07ce7d        2 weeks ago         203 MB
 		Press enter to continue..
-   ```
+  ```
 
 
 2. Staging (Assigning to a customer, install OS, and run application installation from media):
@@ -88,7 +88,7 @@ The solution can be considered in 4 peices (Each having different compliance imp
 	Prepare the linux boot volume, combine with added required pieces needed for deployment from managed services for the application installation, run through the installation process, then commit to the resulting container.
 
 
-   ```
+  ```
 		Enter selection: 12
 		...
 		...
@@ -103,34 +103,34 @@ The solution can be considered in 4 peices (Each having different compliance imp
 		CentOS Linux release 7.5.1804 (Core) 
 		---
 		Press enter to continue..
-   ```
+  ```
 
-   ```
+  ```
 		Enter selection: 1
 		CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                                                                                    NAMES
 		9e2f3ba06379        rhel7-rti-16.1.3    "/usr/sbin/init"    2 minutes ago       Up 2 minutes        22/tcp, 80/tcp, 111/tcp, 443/tcp, 445/tcp, 631/tcp, 2001-2006/tcp, 9100/tcp, 15022/tcp   12345678.teleflora.com
 		Press enter to continue..
-   ```
+  ```
 
-   ```
+  ```
 		Enter selection: 13
 		REPOSITORY                         TAG                 IMAGE ID            CREATED             SIZE
 		12345678.teleflora.com             latest              1b69b029b807        3 minutes ago       1.58 GB
 		rhel7-rti-16.1.3                   latest              05b1c483ffcf        7 minutes ago       1.38 GB
 		registry.access.redhat.com/rhel7   latest              eb205f07ce7d        2 weeks ago         203 MB
 		Press enter to continue..
-   ```
+  ```
 
 
 3. Deployment (with or without data):
 
 	Create VPN connection(s), shutdown application on physical server (if exists), run final backup to sync data, mount persisted data/restore customer data, then start the application instance in the cloud.
 
-	```
+  ```
 		- Menu item 112 and 2.
 
 		SS NEEDED HERE
-	```
+  ```
 
 
 4. Reporting: 
