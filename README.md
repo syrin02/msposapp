@@ -48,13 +48,46 @@ The solution can be considered in 4 peices (Each having different compliance imp
 
 	An automated build process, using containers, to quickly produce OS media prepared with all the required components needed by the application installation. Technically, the use of prepared media from a marketplace or other solution, isn't suggested for PCI compliance. Additionally, in a catastrophic situation, quickly matching patch levels from a customer's physical server becomes a requirement.
 
-		- Menu item 11.
+		- Menu item 11 to build OS media image.
+
+			Enter selection: 13
+			REPOSITORY                         TAG                 IMAGE ID            CREATED             SIZE
+			rhel7-rti-16.1.3                   latest              05b1c483ffcf        19 seconds ago      1.38 GB
+			registry.access.redhat.com/rhel7   latest              eb205f07ce7d        2 weeks ago         203 MB
+			Press enter to continue..
+
 
 2. Staging (creation of a running, generic, instance from media):
 
 	Prepare the linux boot volume, combine with added required pieces needed for deployment from managed services for the application installation, run through the build process, then commit to the resulting container.
 
-		- Menu item 12.
+			Enter selection: 12
+			...
+			...
+			No packages marked for update
+			sha256:1b69b029b807e52398b7446abbc5207d294b2dd0cc36703fb81ee93024a23dfb
+			---
+			rhel7-rti-12345678 instance is ready!
+			---
+			OSTools Version: 1.15.0
+			updateos.pl: $Revision: 1.347 $
+			CentOS Linux release 7.5.1804 (Core) 
+			---
+			Next: Add Customer Data?(y/n):  
+
+			Enter selection: 1
+			CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                                                                                    NAMES
+			9e2f3ba06379        rhel7-rti-16.1.3    "/usr/sbin/init"    2 minutes ago       Up 2 minutes        22/tcp, 80/tcp, 111/tcp, 443/tcp, 445/tcp, 631/tcp, 2001-2006/tcp, 9100/tcp, 15022/tcp   12345678.teleflora.com
+			Press enter to continue..
+
+			Enter selection: 13
+			REPOSITORY                         TAG                 IMAGE ID            CREATED             SIZE
+			12345678.teleflora.com             latest              1b69b029b807        3 minutes ago       1.58 GB
+			rhel7-rti-16.1.3                   latest              05b1c483ffcf        7 minutes ago       1.38 GB
+			registry.access.redhat.com/rhel7   latest              eb205f07ce7d        2 weeks ago         203 MB
+			Press enter to continue..
+
+
 
 3. Deployment (with data):
 
@@ -65,6 +98,8 @@ The solution can be considered in 4 peices (Each having different compliance imp
 4. Reporting: 
 
 	Creation of reporting sufficient enough to produce historical info for billing, performance, and compliance purposes.
+
+	Examples of purposes: yearly key rotation, periodic patch updates, or running time for a time-slice billing option perhaps.
 
 The resulting EC2 instance will be hardened, as well as address the gaps covered by the PCI references below. It will run the linux POS application in a container that is built with the same processes as the physical servers sold to the florists now. There will be a 1-to-1 container to host ratio to allow all host resources to be used by the point of sale application, as well as simplify the segregation of customer data per PA-DSS requirements. The point of sale instance will intiate a VPN connection to the florist's network(s), and route all traffic through the florist via the VPN tunnel. This allows us to block all ports inbound to the container because we are using the POS application server as the VPN client.
 
@@ -119,7 +154,7 @@ Installation
 		Enter selection: 
 		
 		Select "d" to Install/Configure/Upgrade Dependant packages; 1st time need Redhat support login.
-		Select "a" to I/C/U AWSCLI - Need AWS Key and secret key, desired region, and enter "text" for output.
+		Select "a" to I/C/U AWSCLI - Need key and secret key, desired region, and enter "text" for output.
 
 - Next, build the OS media (11), stage an instance (12), create a VPN connection (113), mount persisted data (auto), then start the point of sale server (2).
 
