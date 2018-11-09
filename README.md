@@ -81,7 +81,7 @@ The solution can be considered in 4 peices (Each having different compliance imp
 
 
 
-2. Staging (Assing to a customer, install OS, and run application installation from media):
+2. Staging (Assigning to a customer, install OS, and run application installation from media):
 
 	Prepare the linux boot volume, combine with added required pieces needed for deployment from managed services for the application installation, run through the installation process, then commit to the resulting container.
 
@@ -122,9 +122,9 @@ The solution can be considered in 4 peices (Each having different compliance imp
 
 3. Deployment (with or without data):
 
-	Create VPN connection, shutdown application on physical serveru (if exists), run final backup to sync data, mount persisted data/restore customer data, then start the application instance in the cloud.
+	Create VPN connection(s), shutdown application on physical server (if exists), run final backup to sync data, mount persisted data/restore customer data, then start the application instance in the cloud.
 
-		- Menu item 112 and 12.
+		- Menu item 112 and 2.
 
 		SS NEEDED HERE
 
@@ -170,8 +170,8 @@ Installation
 		┃ RTI Cloud Menu
 		┣━
 		┃ 1. Running Instances
-		┃ 2. Start Instance
-		┃ 3. Stop Instance
+		┃ 2. Deploy Instance
+		┃ 3. Stop Instance(s)
 		┃ 4. Connect to Instance
 		┃ 5. List NICs
 		┃
@@ -179,11 +179,12 @@ Installation
 		┃ 12. Stage a Server
 		┃ 13. List Images
 		┃ 14. Delete Image(s)
+		┃ 15. Instance Snapshot
 		┃
-		┃ 111. Instance Snapshot
-		┃ 112. List VPNs
-		┃ 113. Create VPN
-		┃ 114. Delete VPN
+		┃ 111. List VPN(s)
+		┃ 112. Create VPN
+		┃ 113. Delete VPN(s)
+		┃ 114. Stop VPN(s)
 		┃
 		┃ p. Purge All
 		┃ d. I/C/U Deps
@@ -195,7 +196,7 @@ Installation
 		Select "d" to Install/Configure/Upgrade Dependant packages; 1st time need Redhat support login.
 		Select "a" to I/C/U AWSCLI - Need key and secret key, desired region, and enter "text" for output.
 
-- Next, build the OS media (11), stage an instance (12), create a VPN connection (113), mount persisted data (if desired), then start the point of sale server (2).
+- Next, build the OS media (11), stage an instance (12), create a VPN connection(s) (112), mount persisted data (if desired), then deloy the point of sale server (2).
 
 
 
