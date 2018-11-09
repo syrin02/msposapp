@@ -216,7 +216,10 @@ __Small Server Option:__
 
 __Large Server Option:__
 
-ADD LARGE SERVER OPTION
+![](https://github.com/mykol-com/msposapp/blob/master/pics/ss3.png)
+
+
+![](https://github.com/mykol-com/msposapp/blob/master/pics/ss4.png)
 
 
 
