@@ -118,7 +118,7 @@ The solution can be considered in 4 peices (Each having different compliance imp
 
 
 
-3. Deployment (with data):
+3. Deployment (with or without data):
 
 	Assign to a customer, create VPN connection, mount persisted data, and start the application instance.
 
