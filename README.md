@@ -8,7 +8,7 @@ Teleflora Managed Services Linux Point of Sale Applications deployed in Amazon A
 Overview
 ------------------------
 
-This solution provides for the Teleflora Managed Services Linux point of sale applications to run in the cloud on a single-host Docker environment with a 1:1 contanier to host ratio, in a private cloud network accessible by all branch locations of the customer. It will utilize as many of the existing, proven compliant, internal processes for delivering a point of sale system as possible. This application serves to manage those processes as well as the a few additional ones for inserting the container layer. The end result will be a simple set of instructions (menu driven) to: Build, stage, and deploy a customer's point of sale server into the cloud, quickly, with no loss of data and minimal downtime.
+This solution provides for the Teleflora Managed Services Linux point of sale applications to run in the cloud on a single-host Docker environment with a 1:1 contanier too host ratio, in a private cloud network accessible by all branch locations of the customer. It will utilize as many of the existing, proven compliant, internal processes for delivering a point of sale system as possible. This application serves to manage those processes as well as the a few additional ones for inserting the container layer. The end result will be a simple set of instructions (menu driven) to: Build, stage, and deploy a customer's point of sale server into the cloud, quickly, with no loss of data and minimal downtime.
 
 
 
@@ -50,7 +50,24 @@ The solution can be considered in 4 peices (Each having different compliance imp
 
 	An automated build process, using containers, to quickly produce OS media prepared with all the required components needed by the OS and application installation. Technically, the use of pre-prepared media from a marketplace or other 3rd party, isn't recommended for PCI compliance. Additionally, in a catastrophic situation, quickly matching patch levels from a customer's physical server becomes a requirement.
 
-		- Menu item 11 to build OS media image.
+
+
+		Enter selection: 11
+		...
+		...
+		...
+		Removing intermediate container 0eca109df016
+		Step 29/29 : CMD [“/usr/bin/bash”]
+		 ---> Running in c5f8834ddbb8
+		 ---> d7acf0c663a2
+		Removing intermediate container c5f8834ddbb8
+		Successfully built d7acf0c663a2
+		/home/ec2-user/msposapp/bin
+
+		real    12m28.976s
+		user    12m9.770s
+		sys     0m44.830s
+		Press enter to continue..
 
 
 
@@ -113,7 +130,7 @@ The solution can be considered in 4 peices (Each having different compliance imp
 
 	Creation of reporting sufficient enough to produce historical info for billing, performance, and compliance purposes.
 
-	Examples: yearly key rotations, periodic patch updates, instance inventory/subscriber list, or perhaps running time for a time-slice billing option.
+	Examples: Yearly key rotations, periodic patch updates, instance inventory/subscriber list, or perhaps running time for a time-slice billing option.
 
 The resulting EC2 instance will be hardened, as well as address the gaps covered by the PCI references below. It will run the linux POS application in a container that is built with the same processes as the physical servers sold to the florists now. There will be a 1-to-1 container to host ratio to allow all host resources to be used by the point of sale application, as well as simplify the segregation of customer data per PA-DSS requirements. The point of sale instance will be connected by VPN connection to the florist's network(s), and route all traffic through the florist via that VPN tunnel. This allows us to block all ports inbound to the container itself because we are using the POS application server as the VPN client, who _initiates_ the connection.
 
