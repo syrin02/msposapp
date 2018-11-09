@@ -173,7 +173,7 @@ Installation
 		┃ 2. Deploy Instance
 		┃ 3. Stop Instance(s)
 		┃ 4. Connect to Instance
-		┃ 5. List NICs
+		┃ 5. List Network Interfaces
 		┃
 		┃ 11. Build OS Media
 		┃ 12. Stage a Server
@@ -185,6 +185,7 @@ Installation
 		┃ 112. Create VPN
 		┃ 113. Delete VPN(s)
 		┃ 114. Stop VPN(s)
+		┃ 115. Start VPN(s)
 		┃
 		┃ p. Purge All
 		┃ d. I/C/U Deps
